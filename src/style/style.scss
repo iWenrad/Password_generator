@@ -1,0 +1,71 @@
+// Import fonts
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,500,700,900);
+
+// Root basic colors
+// White theme & dark Theme
+
+:root {
+	--var-body-bg1: #FFFFFF;
+	--var-body-bg2: #EEF1F8;
+	--var-color1: #2F3648;
+	--var-color2: #4A5567;
+	--var-color3: #2B6CB0;
+	--var-color4: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--var-body-bg1: #2F3648;
+		--var-body-bg2: #282F42;
+		--var-color1: #FFFFFF;
+		--var-color2: #EEF1F8;
+		--var-color3: #78b9b2;
+	}
+}
+
+// Preferences
+
+$minWidth: 1440;
+$mainColor: var(--var-color1);
+$bg-color: var(--var-body-bg1);
+$fontFamily: "Roboto";
+$fontSize: 20px;
+$fontWeight: 300;
+
+// Wrapper
+
+.wrapper {
+    min-height: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+    
+    > main {
+		position: relative;
+		z-index: 2;
+		flex: 1 1 auto;
+	}
+}
+
+// Container
+
+[class*="__container"] {
+    max-width: $minWidth + px;
+	margin: 0px auto;
+	padding: 0 15px;
+	width: 100%;
+}
+
+// Import basic styles and other files
+
+@import "./base/null.scss";
+
+// Import styles header / main / footer
+
+@import "./header.scss";
+
+@import "./main.scss";
+
+@import "./footer.scss";    

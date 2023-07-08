@@ -1,0 +1,35 @@
+.footer {
+    background-color: var(--var-body-bg2);
+
+    // .footer__box
+
+    &__box {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    // .footer__text
+
+    &__text {
+        padding: 5px;
+    }
+
+    // .footer__subtext
+
+    &__subtext {
+    }
+
+    // .footer__link
+
+    &__link{
+        transition: 0.3s;
+
+        &:hover {
+            color: rgb(161, 161, 161);
+        }
+    }
+    
+}

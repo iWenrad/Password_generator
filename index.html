@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="#" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- header -->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__box">
+          <div class="header__text">Password <span>Generator</span></div>
+        </div>
+      </div>
+    </header>
+    <!-- main -->
+    <main class="main">
+      <div class="main__container">
+        <div class="main__box">
+          <div class="main__generator generator">
+            <div class="generator__box">
+              <div class="generator__wrapper">
+                <input type="text" class="generator__input" readonly style="outline:none;">
+                <a href="#" class="generator__btn copy"><img src="src/public/main/copy.png" alt="copy"></a>
+                <a href="#" class="generator__btn generate"><img src="src/public/main/regenerate.png"
+                    alt="generate"></a>
+              </div>
+              <div class="generator__strong"></div>
+              <p class="generator__text">Customization</p>
+              <div class="generator__customization">
+                <div class="generator__range-box">
+                  <input type="range" id="range-input" min="4" max="40" step="1" value="4">
+                  <p>Password legth: <span id="pass-length">4</span></p>
+                </div>
+                <div class="generator__checkbox checkbox">
+                  <div class="checkbox__wrapper">
+                    <input type="checkbox" name="uppercase" checked id="uppercase">
+                    <label for="uppercase">Uppercase</label>
+                  </div>
+                  <div class="checkbox__wrapper">
+                    <input type="checkbox" name="lowercase" checked id="lowercase">
+                    <label for="lowercase">Lowercase</label>
+                  </div>
+                  <div class="checkbox__wrapper">
+                    <input type="checkbox" name="numbers" checked id="numbers">
+                    <label for="numbers">Numbers</label>
+                  </div>
+                  <div class="checkbox__wrapper">
+                    <input type="checkbox" name="symbols" checked id="symbols">
+                    <label for="symbols">Symbols</label>
+                  </div>
+                  <div class="checkbox__wrapper">
+                    <input type="checkbox" name="special-symbols" checked id="special-symbols">
+                    <label for="special-symbols">Special symbols</label>
+                  </div>
+                </div>
+              </div>
+              <div class="generator__btn-box">
+                <div href="#" class="generator__button generate" >Generate</div>
+                <div href="#" class="generator__button copy">Copy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__box">
+          <div class="footer__text">Password generator - 2023</div>
+          <div class="footer__subtext"><a href="https://github.com/iWenrad" class="footer__link"
+              target="_blank">iWenrad</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- scripts -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
