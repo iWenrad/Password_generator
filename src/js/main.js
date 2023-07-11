@@ -41,7 +41,7 @@ function getRandomLetter(uppercase, lowercase) {
     } else if (!uppercase && lowercase) {
         return randomLetter;
     } else if (!uppercase && !lowercase) {
-        return "";
+        return getRandomNumber();
     } else {
         return Math.round(Math.random() * 2) === 2 ? randomLetter.toUpperCase() : randomLetter;
     }
@@ -53,9 +53,9 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-    var symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-    var randomIndex = Math.floor(Math.random() * symbols.length);
-    var randomSymbol = symbols[randomIndex];
+    let symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?♦';
+    let randomIndex = Math.floor(Math.random() * symbols.length);
+    let randomSymbol = symbols[randomIndex];
     return randomSymbol;
 }
 
@@ -63,6 +63,10 @@ function isStrongPassword(result) {
     let strength = 0;
 
     if (result.length >= 8) {
+        strength++;
+    }
+
+    if (result.length >= 20 && /[^a-zA-Z0-9]/.test(result)) {
         strength++;
     }
 
@@ -78,7 +82,7 @@ function isStrongPassword(result) {
         strength++;
     }
 
-    if (strength === 4) {
+    if (strength >= 4) {
         return "strong";
     } else if (strength >= 2) {
         return "medium";
@@ -103,13 +107,7 @@ function updatePasswordStrength(result) {
     console.log(strength);
 }
 
-function generatePassword() {
-    let isLetters = symbols.checked;
-    let isNumbers = numbers.checked;
-    let isSpecialSymbols = specialSymbols.checked;
-    let toUpperCase = uppercase.checked;
-    let toLowercase = lowercase.checked;
-
+function generationCondition(isLetters, isNumbers, isSpecialSymbols, toUpperCase, toLowercase) {
     let result = '';
 
     for (let i = 0; i < range; i++) {
@@ -155,9 +153,26 @@ function generatePassword() {
             }
         }
     }
+    return result;
+}
 
-    inputValue.value = result;
-    updatePasswordStrength(result);
+function generatePassword() {
+    let isLetters = symbols.checked;
+    let isNumbers = numbers.checked;
+    let isSpecialSymbols = specialSymbols.checked;
+    let toUpperCase = uppercase.checked;
+    let toLowercase = lowercase.checked;
+
+    let generatedPass = generationCondition(
+        isLetters,
+        isNumbers,
+        isSpecialSymbols,
+        toUpperCase,
+        toLowercase
+    );
+
+    inputValue.value = generatedPass;
+    updatePasswordStrength(generatedPass);
 }
 
 clickGenerate.forEach(item => {
@@ -171,12 +186,12 @@ clickGenerate.forEach(item => {
 function copyResult() {
     let copyText = inputValue;
 
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copyText.value);
 
     alert("Copied the text: " + copyText.value);
-} 
+}
 
 clickCopy.forEach(item => {
     item.addEventListener('click', () => {
