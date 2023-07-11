@@ -5,10 +5,12 @@
 
 <h3>Installation</h3>
 <h5>Step one: insptall packages</h5>
+
 ```shell
 npm i
 ```
 <h5>Step two: start program</h5>
+
 ```shell
 npm run dev
 ```
