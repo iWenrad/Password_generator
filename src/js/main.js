@@ -53,7 +53,7 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-    let symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?♦';
+    let symbols = '!@#$%^&*()_+-=[]{}/\;:,.<>?';
     let randomIndex = Math.floor(Math.random() * symbols.length);
     let randomSymbol = symbols[randomIndex];
     return randomSymbol;
